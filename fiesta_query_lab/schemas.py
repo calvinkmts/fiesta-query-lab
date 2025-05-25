@@ -1,5 +1,6 @@
+from typing import Any, List, Literal, Optional, Union
+
 from pydantic import BaseModel, Field
-from typing import List, Literal, Optional, Any, Union
 
 
 class SelectSpec(BaseModel):
@@ -29,11 +30,18 @@ class AggregateSpec(BaseModel):
     alias: Optional[str] = None
 
 
+class OrderBySpec(BaseModel):
+    field: str
+    direction: Literal["ASC", "DESC"] = "ASC"
+
+
 class QuerySpec(BaseModel):
     table: str
     select: List[SelectSpec] = Field(default_factory=list)
     aggregates: List[AggregateSpec] = Field(default_factory=list)
     where: Optional[LogicalSpec] = None
-    group_bys: List[str] = None
+    group_bys: List[str] = Field(default_factory=list)
+    havings: Optional[LogicalSpec] = None
+    order_bys: List[OrderBySpec] = Field(default_factory=list)
     limit: Optional[int] = None
     offset: Optional[int] = None
