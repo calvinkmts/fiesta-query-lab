@@ -2,14 +2,10 @@
 name = "fiesta-query-lab"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Calvin Kamtoso",email = "calvinkmts@gmail.com"}
-]
+authors = [{ name = "Calvin Kamtoso", email = "calvinkmts@gmail.com" }]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "pydantic (>=2.11.5,<3.0.0)"
-]
+requires-python = ">=3.12"
+dependencies = ["pydantic (>=2.11.5,<3.0.0)"]
 
 [tool.poetry]
 
